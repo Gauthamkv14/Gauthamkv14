@@ -8,6 +8,55 @@ HTML PART:
     <title>Local Disaster Response Platform</title>
     <link rel="stylesheet" href="LOginStyle1.css">
     <script src="https://kit.fontawesome.com/cdbcc992f6.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const reportForm = document.getElementById('reportForm');
+            const donationForm = document.getElementById('donationForm');
+
+            // Handle report submission
+            reportForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+                
+                const reportText = reportForm.querySelector('textarea').value; // Get report text
+                
+                fetch('http://127.0.0.1:5000/api/reports', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ report: reportText }), // Convert data to JSON
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Show success message
+                    reportForm.reset(); // Reset the form
+                })
+                .catch(error => console.error('Error:', error)); // Handle errors
+            });
+
+            // Handle donation submission
+            donationForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+                
+                const item = donationForm.querySelector('input[type="text"]').value; // Get item name
+                const quantity = donationForm.querySelector('input[type="number"]').value; // Get quantity
+                
+                fetch('http://127.0.0.1:5000/api/donations', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ item, quantity }), // Convert data to JSON
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Show success message
+                    donationForm.reset(); // Reset the form
+                })
+                .catch(error => console.error('Error:', error)); // Handle errors
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -36,24 +85,24 @@ HTML PART:
     <footer>
         <p>&copy; 2025 Local Disaster Response Platform</p>
     </footer>
-
-    <script src="Login1.js"></script>
 </body>
 </html>
 
   CSS PART:
-  body {
+ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #ffe5e5; /* Light red background for urgency */
 }
 
 header {
-    background: #35424a;
+    background: #a82323; /* Dark red for alertness */
     color: #ffffff;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding for emphasis */
     text-align: center;
+    font-size: 1.5em; /* Larger font size for visibility */
+    border-bottom: 3px solid #fa2a2a; /* Bold bottom border */
 }
 
 main {
@@ -62,30 +111,31 @@ main {
 
 section {
     margin-bottom: 20px;
-    background: #ffffff;
-    padding: 15px;
+    background: #ffffff; 
+    padding: 20px; /* Increased padding for better readability */
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
 }
 
 button {
-    background-color: #35424a;
+    background-color: #ff4c4c; /* Bright red to signify action */
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px; /* Slightly larger padding */
     cursor: pointer;
     border-radius: 5px;
+    font-weight: bold; /* Bold text for urgency */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #ff1e1e; /* Darker red on hover */
 }
 
 input, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Increased padding for comfort */
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #ff4747; /* Red border for input fields */
     border-radius: 5px;
 }
 
