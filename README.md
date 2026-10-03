@@ -18,7 +18,7 @@ modular API services, SQLite persistence, and Docker-based deployment.
   detector (URL + HTML + visual features) built as a Manifest V3 browser extension with
   client-side inference. URL baseline: 98% accuracy, AUC 0.996 on a 990-sample dataset;
   SHAP/Grad-CAM explainability.
-- **[Closira]** ([frontend](https://github.com/Gauthamkv14/crm-frontend) · [backend](https://github.com/Gauthamkv14/closira-backend)): AI-ready CRM workflow platform.
+- **[Closira]([frontend](https://github.com/Gauthamkv14/crm-frontend) · [backend](https://github.com/Gauthamkv14/closira-backend))**: AI-ready CRM workflow platform.
   FastAPI backend with enquiry intake, SOP matching, follow-ups, idempotent escalations
   and an audit trail (25 tests); React Native + Expo mobile dashboard.
 - **[Code Review Env](https://github.com/Gauthamkv14/code-review-env)**: RL environment for
@@ -41,7 +41,7 @@ modular API services, SQLite persistence, and Docker-based deployment.
 
 [Discord](https://discord.com/users/899507227788968006)
 
-#My Portfolio Website:
+# My Portfolio Website:
 [Portfolio](https://gauthamkv14.vercel.app/)
 
 
